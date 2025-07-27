@@ -10,9 +10,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 
 const API_ENDPOINTS = {
-  doctor: "http://localhost:9999/api/admin-accountdoctor",
-  patient: "http://localhost:9999/api/admin-accountpatient",
-  staff: "http://localhost:9999/api/admin-accountstaff",
+  doctor: "https://backend-dentistez-b2xg.onrender.com/api/admin-accountdoctor",
+  patient: "https://backend-dentistez-b2xg.onrender.com/api/admin-accountpatient",
+  staff: "https://backend-dentistez-b2xg.onrender.com/api/admin-accountstaff",
 };
 
 const AccountManagement = () => {
@@ -173,7 +173,7 @@ const AccountManagement = () => {
           setLoading(true);
 
           const response = await axios.patch(
-            `http://localhost:9999/api/admin/update-status/${userRole}/${recordId}`,
+            `https://backend-dentistez-b2xg.onrender.com/api/admin/update-status/${userRole}/${recordId}`,
             { Status: newStatus },
             {
               headers: {
@@ -205,7 +205,7 @@ const AccountManagement = () => {
 
   const fetchClinics = async () => {
     try {
-      const response = await axios.get("http://localhost:9999/api/clinic", {
+      const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/clinic", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       if (response.data.success) {
@@ -234,7 +234,7 @@ const AccountManagement = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:9999/api/admin/create-account-doctor",
+        "https://backend-dentistez-b2xg.onrender.com/api/admin/create-account-doctor",
         {
           ...formData,
           role: "doctor"
@@ -283,7 +283,7 @@ const AccountManagement = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:9999/api/admin/create-account-staff",
+        "https://backend-dentistez-b2xg.onrender.com/api/admin/create-account-staff",
         {
           ...staffFormData,
           role: "staff"

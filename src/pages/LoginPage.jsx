@@ -56,7 +56,7 @@ const LoginPage = () => {
     console.log("Google user:", decoded);
 
     try {
-      const res = await fetch("http://localhost:9999/api/gg-login", {
+      const res = await fetch("https://backend-dentistez-b2xg.onrender.com/api/gg-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: response.credential }),
@@ -87,7 +87,7 @@ const LoginPage = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:9999/api/login", {
+      const response = await fetch("https://backend-dentistez-b2xg.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

@@ -22,7 +22,7 @@ export default function ReExamModalForStaff({
       setSelectedDate(null);
       setMessage(""); setMessageType("info");
       const doctorId = rootAppointment.doctorId?._id || rootAppointment.doctorId;
-      axios.get(`http://localhost:9999/app/timeslots/by-doctor/${doctorId}`, {
+      axios.get(`https://backend-dentistez-b2xg.onrender.com/app/timeslots/by-doctor/${doctorId}`, {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => setTimeslots(res.data.data || []))
         .catch(() => setTimeslots([]))
@@ -70,7 +70,7 @@ export default function ReExamModalForStaff({
     setLoading(true);
     try {
       await axios.post(
-        `http://localhost:9999/app/re-examination/${rootAppointment._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/app/re-examination/${rootAppointment._id}`,
         { timeslotId: selectedTimeslot, note },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -77,7 +77,7 @@ const DoctorAccountManagement = () => {
 
   const fetchDoctors = async (token) => {
     try {
-      const response = await axios.get("http://localhost:9999/api/doctor", {
+      const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/doctor", {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("Danh sách bác sĩ đã tải:", response.data);
@@ -96,7 +96,7 @@ const DoctorAccountManagement = () => {
 
   const fetchClinics = async (token) => {
     try {
-      const response = await axios.get("http://localhost:9999/api/clinic", {
+      const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/clinic", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setClinics(Array.isArray(response.data.data) ? response.data.data : []);
@@ -111,7 +111,7 @@ const DoctorAccountManagement = () => {
     const newStatus = currentStatus === "active" ? "inactive" : "active";
     try {
       const response = await axios.put(
-        `http://localhost:9999/api/doctor/${doctorId}/status`,
+        `https://backend-dentistez-b2xg.onrender.com/api/doctor/${doctorId}/status`,
         { Status: newStatus },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -212,7 +212,7 @@ const DoctorAccountManagement = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:9999/api/doctor/${selectedDoctor._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/doctor/${selectedDoctor._id}`,
         formData,
         {
           headers: {

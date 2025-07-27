@@ -21,7 +21,7 @@ const DoctorDetail = () => {
     const fetchData = async () => {
       try {
         // Fetch doctor by ID
-        const doctorResponse = await axios.get(`http://localhost:9999/api/doctor/${doctorId}`);
+        const doctorResponse = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/doctor/${doctorId}`);
         console.log("Doctor API Response:", doctorResponse.data);
         if (doctorResponse.data.data) {
           setDoctor(doctorResponse.data.data);
@@ -32,7 +32,7 @@ const DoctorDetail = () => {
         }
 
         // Fetch all doctors
-        const allDoctorsResponse = await axios.get(`http://localhost:9999/api/doctor`);
+        const allDoctorsResponse = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/doctor`);
         console.log("All Doctors API Response:", allDoctorsResponse.data);
         const doctors = allDoctorsResponse.data.data || allDoctorsResponse.data || [];
         setAllDoctors(doctors);

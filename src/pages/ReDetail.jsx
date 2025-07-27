@@ -169,7 +169,7 @@ const ReDetail = () => {
       try {
         const token = localStorage.getItem("token");
         const res = await fetch(
-          `http://localhost:9999/app/re-examinations/${id}`,
+          `https://backend-dentistez-b2xg.onrender.com/app/re-examinations/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -209,7 +209,7 @@ const ReDetail = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:9999/app/cancel/${appointmentId}`,
+        `https://backend-dentistez-b2xg.onrender.com/app/cancel/${appointmentId}`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

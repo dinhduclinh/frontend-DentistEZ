@@ -46,7 +46,7 @@ const ChangePasswordPage = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "http://localhost:9999/api/changepass",
+        "https://backend-dentistez-b2xg.onrender.com/api/changepass",
         {
           oldPassword,
           newPassword,

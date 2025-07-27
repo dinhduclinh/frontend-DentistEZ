@@ -50,7 +50,7 @@ const AppointmentManagement = () => {
     setLoading(true);
     const token = localStorage.getItem("token");
     try {
-      const appointmentRes = await axios.get("http://localhost:9999/api/admin/appointments", {
+      const appointmentRes = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/admin/appointments", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -71,7 +71,7 @@ const AppointmentManagement = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
-        `http://localhost:9999/api/admin/appointments/${appointmentId}/status`,
+        `https://backend-dentistez-b2xg.onrender.com/api/admin/appointments/${appointmentId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

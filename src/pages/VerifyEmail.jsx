@@ -33,7 +33,7 @@ const VerifyEmailPage = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://localhost:9999/api/verify-email-otp", {
+      const res = await fetch("https://backend-dentistez-b2xg.onrender.com/api/verify-email-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
@@ -56,7 +56,7 @@ const VerifyEmailPage = () => {
 
   // const handleResendOTP = async () => {
   //   try {
-  //     const res = await axios.post("http://localhost:9999/api/send-otp", {
+  //     const res = await axios.post("https://backend-dentistez-b2xg.onrender.com/api/send-otp", {
   //       email,
   //     });
   //     setMessage("Đã gửi lại mã OTP, vui lòng kiểm tra email.");

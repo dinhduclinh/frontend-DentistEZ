@@ -15,7 +15,7 @@ const DoctorPage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const res = await axios.get("http://localhost:9999/api/doctor");
+        const res = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/doctor");
         const doctorData = res.data.data || [];
         setDoctors(doctorData);
         console.log("Doctors API Response:", doctorData); // Debug: Log raw data

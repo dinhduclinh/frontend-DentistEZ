@@ -44,7 +44,7 @@ const ServiceDetail = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:9999/app/upload-file", {
+      const response = await fetch("https://backend-dentistez-b2xg.onrender.com/app/upload-file", {
         method: "POST",
         body: formData
       });
@@ -70,7 +70,7 @@ const ServiceDetail = () => {
     const fetchService = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:9999/api/view-detail/service/${id}`);
+        const response = await fetch(`https://backend-dentistez-b2xg.onrender.com/api/view-detail/service/${id}`);
         const data = await response.json();
         if (Array.isArray(data.data)) {
           setService(data.data[0]);
@@ -172,7 +172,7 @@ const ServiceDetail = () => {
 
     try {
       // Đổi endpoint thành /create-payment
-      const res = await fetch('http://localhost:9999/app/create-payment', {
+      const res = await fetch('https://backend-dentistez-b2xg.onrender.com/app/create-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ const DoctorSelector = ({ onDoctorChange, onClinicInfoChange }) => {
     const fetchDoctors = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://localhost:9999/api/doctor", {
+        const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/doctor", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         if (response.data.success) {
@@ -60,7 +60,7 @@ const DoctorSelector = ({ onDoctorChange, onClinicInfoChange }) => {
   const fetchDoctorClinic = async (doctorId) => {
     try {
       const response = await axios.get(
-        `http://localhost:9999/api/doctor/${doctorId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/doctor/${doctorId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -160,7 +160,7 @@ const DoctorScheduleView = () => {
   const fetchAvailableYearsAndWeeks = async (doctorId) => {
     try {
       const response = await axios.get(
-        `http://localhost:9999/api/timeslots/doctor/${doctorId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/timeslots/doctor/${doctorId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -298,7 +298,7 @@ const DoctorScheduleView = () => {
     try {
       const [startDate, endDate] = selectedWeek.split("_");
       const response = await axios.get(
-        `http://localhost:9999/api/doctor-schedule?doctorId=${selectedDoctor}&startDate=${startDate}&endDate=${endDate}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/doctor-schedule?doctorId=${selectedDoctor}&startDate=${startDate}&endDate=${endDate}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -334,7 +334,7 @@ const DoctorScheduleView = () => {
   const fetchAppointmentDetails = async (timeslotId) => {
     try {
       const response = await axios.get(
-        `http://localhost:9999/api/appointments/timeslot/${timeslotId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/appointments/timeslot/${timeslotId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }

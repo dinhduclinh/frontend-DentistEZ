@@ -249,7 +249,7 @@ const CreateScheduleComponent = ({ onScheduleCreated, isVisible }) => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:9999/api/doctor/create-schedule",
+        "https://backend-dentistez-b2xg.onrender.com/api/doctor/create-schedule",
         {
           selected_slots: selectedSlots,
           dates: selectedDates,
@@ -423,7 +423,7 @@ const ScheduleManagement = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:9999/api/doctor/getScheduleByWeek?startDate=${currentWeek.start}&endDate=${currentWeek.end}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/doctor/getScheduleByWeek?startDate=${currentWeek.start}&endDate=${currentWeek.end}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -459,7 +459,7 @@ const ScheduleManagement = () => {
   const fetchAppointmentDetails = async (timeslotId) => {
     try {
       const response = await axios.get(
-        `http://localhost:9999/api/appointments/timeslot/${timeslotId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/appointments/timeslot/${timeslotId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -486,7 +486,7 @@ const ScheduleManagement = () => {
   const deleteTimeslot = async (timeslotId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:9999/api/timeslots/${timeslotId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/timeslots/${timeslotId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -535,7 +535,7 @@ const ScheduleManagement = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:9999/api/appointments/update-status-note/${appointmentDetails._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/appointments/update-status-note/${appointmentDetails._id}`,
         { status: "completed" },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -568,7 +568,7 @@ const ScheduleManagement = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:9999/api/appointments/update-status-note/${appointmentDetails._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/appointments/update-status-note/${appointmentDetails._id}`,
         { note: newNote },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

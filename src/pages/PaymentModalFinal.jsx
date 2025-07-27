@@ -18,10 +18,10 @@ export default function PaymentModalFinal({ open, onClose, appointmentId, token,
       setLoading(true);
       setMessage(""); setMessageType("info");
       Promise.all([
-        axios.get(`http://localhost:9999/app/staffmodal/appointments/${appointmentId}`, {
+        axios.get(`https://backend-dentistez-b2xg.onrender.com/app/staffmodal/appointments/${appointmentId}`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get(`http://localhost:9999/app/payments/deposit-total/${appointmentId}`, {
+        axios.get(`https://backend-dentistez-b2xg.onrender.com/app/payments/deposit-total/${appointmentId}`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
       ])
@@ -87,7 +87,7 @@ export default function PaymentModalFinal({ open, onClose, appointmentId, token,
     try {
       if (paymentMethod === "cash") {
         await axios.post(
-          `http://localhost:9999/app/payments/${appointmentId}/final/cash`,
+          `https://backend-dentistez-b2xg.onrender.com/app/payments/${appointmentId}/final/cash`,
           { amount: paymentAmount, description: "Thanh toán phần còn lại" },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -99,7 +99,7 @@ export default function PaymentModalFinal({ open, onClose, appointmentId, token,
         }, 1400);
       } else {
         const res = await axios.post(
-          `http://localhost:9999/app/payments/${appointmentId}/final/online`,
+          `https://backend-dentistez-b2xg.onrender.com/app/payments/${appointmentId}/final/online`,
           { amount: paymentAmount, description: "Thanh toán phần còn lại" },
           { headers: { Authorization: `Bearer ${token}` } }
         );

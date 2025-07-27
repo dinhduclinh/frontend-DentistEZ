@@ -40,7 +40,7 @@ const AppointmentPage = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:9999/api/view/service');
+      const response = await axios.get('https://backend-dentistez-b2xg.onrender.com/api/view/service');
       if (Array.isArray(response.data)) {
         setServices(response.data);
       } else if (response.data && Array.isArray(response.data.data)) {
@@ -59,7 +59,7 @@ const AppointmentPage = () => {
   const fetchServiceDetail = async (serviceId) => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:9999/api/view-detail/service/${serviceId}`);
+      const response = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/view-detail/service/${serviceId}`);
       if (response.data && Array.isArray(response.data.data)) {
         setServiceDetail(response.data.data[0]);
       } else if (response.data && response.data.data) {
@@ -107,7 +107,7 @@ const AppointmentPage = () => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const response = await fetch('http://localhost:9999/app/upload-file', {
+      const response = await fetch('https://backend-dentistez-b2xg.onrender.com/app/upload-file', {
         method: 'POST',
         body: formData,
       });
@@ -168,7 +168,7 @@ const AppointmentPage = () => {
       description: currentOption?.optionName || serviceDetail?.serviceName || 'Đặt lịch khám',
     };
     try {
-      const res = await fetch('http://localhost:9999/app/create-payment', {
+      const res = await fetch('https://backend-dentistez-b2xg.onrender.com/app/create-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

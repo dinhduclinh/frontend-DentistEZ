@@ -66,7 +66,7 @@ const PatientAppointmentPage = () => {
       const token = localStorage.getItem("token");
       const userId = JSON.parse(atob(token.split(".")[1])).userId;
       const res = await axios.get(
-        `http://localhost:9999/app/patient/${userId}`
+        `https://backend-dentistez-b2xg.onrender.com/app/patient/${userId}`
       );
       if (res.data.success) {
         setAppointments(res.data.data.appointments);
@@ -107,7 +107,7 @@ const PatientAppointmentPage = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:9999/app/cancel-refund/${cancelId}`,
+        `https://backend-dentistez-b2xg.onrender.com/app/cancel-refund/${cancelId}`,
         { refundAccount, refundBank },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -145,7 +145,7 @@ const PatientAppointmentPage = () => {
       const token = localStorage.getItem("token");
       const doctorId = appointment.doctorId._id || appointment.doctorId;
       const res = await axios.get(
-        `http://localhost:9999/app/timeslots/by-doctor/${doctorId}`,
+        `https://backend-dentistez-b2xg.onrender.com/app/timeslots/by-doctor/${doctorId}`,
         {
           params: { doctorId: doctorId },
           headers: { Authorization: `Bearer ${token}` },
@@ -446,7 +446,7 @@ const PatientAppointmentPage = () => {
               try {
                 const token = localStorage.getItem("token");
                 const res = await axios.post(
-                  `http://localhost:9999/app/re-examination/${reExamAppointment._id}`,
+                  `https://backend-dentistez-b2xg.onrender.com/app/re-examination/${reExamAppointment._id}`,
                   {
                     serviceId:
                       reExamAppointment.serviceId?._id ||

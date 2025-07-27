@@ -31,10 +31,10 @@ const BlogPage = () => {
           topViewedResponse,
           servicesResponse,
         ] = await Promise.all([
-          axios.get("http://localhost:9999/api/blogs", { headers }),
-          axios.get("http://localhost:9999/api/categories", { headers }),
-          axios.get("http://localhost:9999/api/blogs/top-viewed", { headers }),
-          axios.get("http://localhost:9999/api/view/newservice", { headers }),
+          axios.get("https://backend-dentistez-b2xg.onrender.com/api/blogs", { headers }),
+          axios.get("https://backend-dentistez-b2xg.onrender.com/api/categories", { headers }),
+          axios.get("https://backend-dentistez-b2xg.onrender.com/api/blogs/top-viewed", { headers }),
+          axios.get("https://backend-dentistez-b2xg.onrender.com/api/view/newservice", { headers }),
         ]);
 
         const transformedBlogs = blogsResponse.data.map((blog) => ({

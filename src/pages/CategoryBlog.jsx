@@ -73,7 +73,7 @@ const CategoryBlog = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:9999/api/admin/categories",
+        "https://backend-dentistez-b2xg.onrender.com/api/admin/categories",
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           params: {
@@ -150,7 +150,7 @@ const CategoryBlog = () => {
       }
       console.log("Đang thêm danh mục với dữ liệu:", newCategory);
       const response = await axios.post(
-        "http://localhost:9999/api/categories",
+        "https://backend-dentistez-b2xg.onrender.com/api/categories",
         { name: newCategory.name, status: newCategory.status },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -199,7 +199,7 @@ const CategoryBlog = () => {
       }
       console.log("Đang cập nhật danh mục với dữ liệu:", editingCategory);
       const response = await axios.put(
-        `http://localhost:9999/api/categories/${editingCategory._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/categories/${editingCategory._id}`,
         { name: editingCategory.name, status: editingCategory.status },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -243,7 +243,7 @@ const CategoryBlog = () => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:9999/api/categories/${categoryToDelete._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/categories/${categoryToDelete._id}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           params: { permanent: deleteCategoryType === "permanent" },

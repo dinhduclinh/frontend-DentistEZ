@@ -5,7 +5,7 @@ import { useAuth } from "../context/authContext";
 import io from "socket.io-client";
 import { BsChatDots } from "react-icons/bs";
 
-const socket = io("http://localhost:9999");
+const socket = io("https://backend-dentistez-b2xg.onrender.com");
 
 const Chatbox = () => {
   const { user } = useAuth();
@@ -90,7 +90,7 @@ const Chatbox = () => {
           try {
             const userId = user.role === "patient" ? user.id : chat.id;
             const response = await axios.get(
-              `http://localhost:9999/api/chat/messages?userId=${userId}`,
+              `https://backend-dentistez-b2xg.onrender.com/api/chat/messages?userId=${userId}`,
               {
                 headers: { "Content-Type": "application/json" },
               }
@@ -263,7 +263,7 @@ const Chatbox = () => {
     if (selectedChat.type === "ai") {
       try {
         const response = await axios.post(
-          "http://localhost:9999/api/chat/chatwithai",
+          "https://backend-dentistez-b2xg.onrender.com/api/chat/chatwithai",
           {
             message: inputMessage,
             sessionId: selectedChat.roomId,

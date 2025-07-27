@@ -20,7 +20,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get("http://localhost:9999/api/doctor");
+        const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/doctor");
         const activeDoctors = response.data.data.filter(
           (doctor) => doctor.Status !== "inactive"
         );
@@ -41,7 +41,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:9999/api/view/service");
+        const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/view/service");
         setServices(response.data.data || response.data);
       } catch (error) {
         console.error("Failed to fetch services:", error);
@@ -60,7 +60,7 @@ const HomePage = () => {
         const token = localStorage.getItem("token");
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const blogsResponse = await axios.get("http://localhost:9999/api/blogs", {
+        const blogsResponse = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/blogs", {
           headers,
         });
 

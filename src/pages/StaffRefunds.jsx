@@ -41,7 +41,7 @@ const RefundManagement = () => {
 
   const fetchRefunds = async () => {
     try {
-      const res = await axios.get("http://localhost:9999/app/refunds");
+      const res = await axios.get("https://backend-dentistez-b2xg.onrender.com/app/refunds");
       console.log("Fetched refunds:", res.data.data);
       
       const sorted = res.data.data.sort(
@@ -105,7 +105,7 @@ const RefundManagement = () => {
 
   const handleConfirmRefund = async (id) => {
     try {
-      await axios.put(`http://localhost:9999/app/refunds/confirm/${id}`);
+      await axios.put(`https://backend-dentistez-b2xg.onrender.com/app/refunds/confirm/${id}`);
       showNotification("Thành công", "Xác nhận hoàn tiền thành công", () => {
         fetchRefunds();
       });

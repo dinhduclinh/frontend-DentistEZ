@@ -21,7 +21,7 @@ const ResetPasswordPage = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:9999/api/confirm-reset", {
+      const response = await fetch("https://backend-dentistez-b2xg.onrender.com/api/confirm-reset", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, newPassword: password }),

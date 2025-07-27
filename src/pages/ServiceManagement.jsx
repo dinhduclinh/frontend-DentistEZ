@@ -75,7 +75,7 @@ function ServiceManagement() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get('http://localhost:9999/api/admin/viewallservicebymanager', {
+      const res = await axios.get('https://backend-dentistez-b2xg.onrender.com/api/admin/viewallservicebymanager', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAllServices(res.data.data || res.data);
@@ -89,7 +89,7 @@ function ServiceManagement() {
   const fetchDoctors = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get('http://localhost:9999/api/doctor', {
+      const res = await axios.get('https://backend-dentistez-b2xg.onrender.com/api/doctor', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDoctors(res.data.data || res.data);
@@ -101,7 +101,7 @@ function ServiceManagement() {
   const fetchClinics = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get('http://localhost:9999/api/clinic', {
+      const res = await axios.get('https://backend-dentistez-b2xg.onrender.com/api/clinic', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setClinics(res.data.data || res.data);
@@ -119,7 +119,7 @@ function ServiceManagement() {
     const formData = new FormData();
     formData.append('image', file);
     try {
-      const res = await axios.post('http://localhost:9999/api/admin/upload-image', formData, {
+      const res = await axios.post('https://backend-dentistez-b2xg.onrender.com/api/admin/upload-image', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (isOption) {
@@ -208,7 +208,7 @@ function ServiceManagement() {
     setFormError('');
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:9999/api/admin/create/service', form, {
+      await axios.post('https://backend-dentistez-b2xg.onrender.com/api/admin/create/service', form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showAlert('Bạn đã tạo dịch vụ thành công!');
@@ -347,7 +347,7 @@ function ServiceManagement() {
     showConfirm('Bạn chắc chắn muốn xóa dịch vụ này?', async () => {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:9999/api/admin/delete-service/${id}`, {
+        await axios.delete(`https://backend-dentistez-b2xg.onrender.com/api/admin/delete-service/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         showAlert('Đã xóa dịch vụ!');
@@ -382,7 +382,7 @@ function ServiceManagement() {
     setFormError('');
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:9999/api/admin/update-service/${editId}`, form, {
+      await axios.put(`https://backend-dentistez-b2xg.onrender.com/api/admin/update-service/${editId}`, form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showAlert('Đã cập nhật dịch vụ!');

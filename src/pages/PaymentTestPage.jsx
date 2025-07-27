@@ -56,7 +56,7 @@ const PaymentTestPage = () => {
       const description = `Thanh toán ${service.title}`.substring(0, 25);
 
       const response = await axios.post(
-        "http://localhost:9999/api/create-payment",
+        "https://backend-dentistez-b2xg.onrender.com/api/create-payment",
         {
           amount: service.price,
           description,

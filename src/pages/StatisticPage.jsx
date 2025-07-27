@@ -92,19 +92,19 @@ const AppointmentStats = () => {
         summaryRes,
       ] = await Promise.all([
         axios
-          .get(`http://localhost:9999/api/appointment-trend${query}`, { headers })
+          .get(`https://backend-dentistez-b2xg.onrender.com/api/appointment-trend${query}`, { headers })
           .catch(err => { throw new Error(`Appointment Trend: ${err.message}`); }),
         axios
-          .get(`http://localhost:9999/api/appointment-status-stats${query}`, { headers })
+          .get(`https://backend-dentistez-b2xg.onrender.com/api/appointment-status-stats${query}`, { headers })
           .catch(err => { throw new Error(`Status Stats: ${err.message}`); }),
         axios
-          .get(`http://localhost:9999/api/revenue-trend${query}`, { headers })
+          .get(`https://backend-dentistez-b2xg.onrender.com/api/revenue-trend${query}`, { headers })
           .catch(err => { throw new Error(`Revenue Trend: ${err.message}`); }),
         axios
-          .get(`http://localhost:9999/api/revenue-by-type${query}`, { headers })
+          .get(`https://backend-dentistez-b2xg.onrender.com/api/revenue-by-type${query}`, { headers })
           .catch(err => { throw new Error(`Payment Type: ${err.message}`); }),
         axios
-          .get(`http://localhost:9999/api/summaries${query}`, { headers })
+          .get(`https://backend-dentistez-b2xg.onrender.com/api/summaries${query}`, { headers })
           .catch(err => { throw new Error(`Summaries: ${err.message}`); }),
       ]);
 

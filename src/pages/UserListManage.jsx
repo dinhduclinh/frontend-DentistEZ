@@ -40,19 +40,19 @@ const UserListPage = () => {
   const fetchUsers = async () => {
     try {
       const [patientRes, doctorRes, staffRes] = await Promise.all([
-        axios.get("http://localhost:9999/api/patients", {
+        axios.get("https://backend-dentistez-b2xg.onrender.com/api/patients", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }).catch(err => {
           console.error("Patient fetch error:", err.response?.data || err.message);
           return { data: { success: false, data: [] } };
         }),
-        axios.get("http://localhost:9999/api/doctor", {
+        axios.get("https://backend-dentistez-b2xg.onrender.com/api/doctor", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }).catch(err => {
           console.error("Doctor fetch error:", err.response?.data || err.message);
           return { data: { success: false, data: [] } };
         }),
-        axios.get("http://localhost:9999/api/staff", {
+        axios.get("https://backend-dentistez-b2xg.onrender.com/api/staff", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }).catch(err => {
           console.error("Staff fetch error:", err.response?.data || err.message);
@@ -79,7 +79,7 @@ const UserListPage = () => {
     const newStatus = currentStatus === "active" ? "inactive" : "active";
     try {
       const response = await axios.put(
-        `http://localhost:9999/api/${userType}/${userId}/status`,
+        `https://backend-dentistez-b2xg.onrender.com/api/${userType}/${userId}/status`,
         { Status: newStatus },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

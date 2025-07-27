@@ -41,7 +41,7 @@ function StaffManagerPatientApp() {
   const handleCancelAppointment = async (appointmentId) => {
     try {
       const response = await axios.put(
-        `http://localhost:9999/api/cancel/${appointmentId}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/cancel/${appointmentId}`,
         {},
         {
           headers: {
@@ -73,7 +73,7 @@ function StaffManagerPatientApp() {
     let query = `status=${status}&page=${page}&limit=${PAGE_SIZE}`;
     if (search) query += `&search=${encodeURIComponent(search)}`;
     axios
-      .get(`http://localhost:9999/app/staff/appointments?${query}`, {
+      .get(`https://backend-dentistez-b2xg.onrender.com/app/staff/appointments?${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((resp) => {

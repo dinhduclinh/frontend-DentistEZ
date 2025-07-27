@@ -13,7 +13,7 @@ const VerifyOtpPage = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:9999/api/verify-pass", {
+      const response = await fetch("https://backend-dentistez-b2xg.onrender.com/api/verify-pass", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),

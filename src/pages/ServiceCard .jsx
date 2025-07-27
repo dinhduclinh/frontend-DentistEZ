@@ -20,7 +20,7 @@ const ServiceCard = () => {
       setLoading(true);
       setError('');
       try {
-        const res = await axios.get('http://localhost:9999/api/view/service');
+        const res = await axios.get('https://backend-dentistez-b2xg.onrender.com/api/view/service');
         setServices(res.data.data || res.data);
       } catch (err) {
         setError('Không thể tải danh sách dịch vụ');

@@ -88,7 +88,7 @@ const BlogListPage = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        "http://localhost:9999/api/admin/blogs",
+        "https://backend-dentistez-b2xg.onrender.com/api/admin/blogs",
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           params: {
@@ -119,7 +119,7 @@ const BlogListPage = () => {
   // Fetch categories for filter dropdown (memoized with useCallback)
   const fetchCategories = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:9999/api/categories", {
+      const response = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/categories", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setCategories(response.data);
@@ -181,7 +181,7 @@ const BlogListPage = () => {
     });
     try {
       const response = await axios.post(
-        "http://localhost:9999/api/blogs/upload",
+        "https://backend-dentistez-b2xg.onrender.com/api/blogs/upload",
         formData,
         {
           headers: {
@@ -305,7 +305,7 @@ const BlogListPage = () => {
         });
       }
       const response = await axios.post(
-        "http://localhost:9999/api/blogs",
+        "https://backend-dentistez-b2xg.onrender.com/api/blogs",
         {
           title: blogToAdd.title,
           content: blogToAdd.content,
@@ -405,7 +405,7 @@ const BlogListPage = () => {
         });
       }
       const response = await axios.put(
-        `http://localhost:9999/api/blogs/${editingBlog._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/blogs/${editingBlog._id}`,
         {
           title: updatedBlog.title,
           content: updatedBlog.content,
@@ -458,7 +458,7 @@ const BlogListPage = () => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:9999/api/blogs/${blogToDelete._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/blogs/${blogToDelete._id}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           params: { permanent: deleteBlogType === "permanent" },

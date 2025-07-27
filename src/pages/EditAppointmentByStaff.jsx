@@ -67,7 +67,7 @@ const EditAppointmentByStaff = ({ visible, onCancel, appointment, onUpdate }) =>
       if (!token) {
         throw new Error('Không tìm thấy token xác thực');
       }
-      const response = await axios.get(`http://localhost:9999/api/view-detail/service/${serviceId}`, {
+      const response = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/view-detail/service/${serviceId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Service Detail API Response:', response.data);
@@ -174,7 +174,7 @@ const EditAppointmentByStaff = ({ visible, onCancel, appointment, onUpdate }) =>
         throw new Error('Không tìm thấy token xác thực');
       }
       const response = await axios.put(
-        `http://localhost:9999/api/staff/appointments/${appointment._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/staff/appointments/${appointment._id}`,
         {
           timeslotId: values.timeslotId,
           note: values.note,

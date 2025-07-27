@@ -57,7 +57,7 @@ const EditAppointment = ({ visible, onCancel, appointment, onUpdate }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:9999/api/view-detail/service/${serviceId}`, {
+      const response = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/view-detail/service/${serviceId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log('API Response:', response.data);
@@ -156,7 +156,7 @@ const EditAppointment = ({ visible, onCancel, appointment, onUpdate }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:9999/api/appointments/${appointment._id}`,
+        `https://backend-dentistez-b2xg.onrender.com/api/appointments/${appointment._id}`,
         {
           timeslotId: values.timeslotId,
           note: values.note,

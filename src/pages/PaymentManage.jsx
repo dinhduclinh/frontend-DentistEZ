@@ -49,7 +49,7 @@ const PaymentManage = () => {
   const fetchPayments = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:9999/api/admin/payments", {
+      const res = await axios.get("https://backend-dentistez-b2xg.onrender.com/api/admin/payments", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

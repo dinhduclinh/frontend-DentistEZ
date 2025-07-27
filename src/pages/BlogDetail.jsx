@@ -34,7 +34,7 @@ const BlogDetail = () => {
 
         // Fetch blog detail
         const blogResponse = await axios.get(
-          `http://localhost:9999/api/blogs/slug/${slug}`,
+          `https://backend-dentistez-b2xg.onrender.com/api/blogs/slug/${slug}`,
           { headers }
         );
         const transformedBlog = {
@@ -63,14 +63,14 @@ const BlogDetail = () => {
 
         // Fetch top viewed blogs
         const topViewedResponse = await axios.get(
-          "http://localhost:9999/api/blogs/top-viewed",
+          "https://backend-dentistez-b2xg.onrender.com/api/blogs/top-viewed",
           { headers }
         );
         setTopViewedBlogs(topViewedResponse.data);
 
         // Fetch latest services
         const servicesResponse = await axios.get(
-          "http://localhost:9999/api/view/newservice",
+          "https://backend-dentistez-b2xg.onrender.com/api/view/newservice",
           { headers }
         );
         // Limit to 5 latest services
@@ -99,7 +99,7 @@ const BlogDetail = () => {
           const token = localStorage.getItem("token");
           const headers = token ? { Authorization: `Bearer ${token}` } : {};
           await axios.post(
-            `http://localhost:9999/api/blogs/slug/${slug}/views`,
+            `https://backend-dentistez-b2xg.onrender.com/api/blogs/slug/${slug}/views`,
             {},
             { headers }
           );

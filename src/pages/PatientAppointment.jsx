@@ -23,7 +23,7 @@ const PatientAppointment = () => {
     setLoading(true);
     try {
       console.log('Fetching patient and appointments for userId:', userId);
-      const response = await axios.get(`http://localhost:9999/api/patient/${userId}`);
+      const response = await axios.get(`https://backend-dentistez-b2xg.onrender.com/api/patient/${userId}`);
       console.log('Response:', response.data);
       if (response.data.success) {
         setPatientInfo(response.data.data.patient);

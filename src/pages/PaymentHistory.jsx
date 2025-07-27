@@ -30,7 +30,7 @@ const PaymentHistory = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "http://localhost:9999/api/patient/payments",
+          "https://backend-dentistez-b2xg.onrender.com/api/patient/payments",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

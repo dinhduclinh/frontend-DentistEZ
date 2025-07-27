@@ -162,7 +162,7 @@ const ProfilePage = () => {
         const uploadData = new FormData();
         uploadData.append("profilePicture", file);
         const uploadResponse = await axios.post(
-          "http://localhost:9999/api/user/upload-picture-profile",
+          "https://backend-dentistez-b2xg.onrender.com/api/user/upload-picture-profile",
           uploadData,
           {
             headers: {
@@ -180,7 +180,7 @@ const ProfilePage = () => {
         updatedProfilePicture = uploadResponse.data.data.profilePicture;
       }
       const profileResponse = await axios.put(
-        "http://localhost:9999/api/user/profile",
+        "https://backend-dentistez-b2xg.onrender.com/api/user/profile",
         updateData,
         {
           headers: {
